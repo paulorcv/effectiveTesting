@@ -66,6 +66,13 @@ class SubstringsTest {
     void openAndCloseWithMoreThanOneChar() {
         assertThat(substringsBetween("lalaaalalabbaalalabb", "aa", "bb")
         ).isEqualTo(new String[]{"alala", "lala"});
+
+        assertThat(substringsBetween("lalaaalalabbaalalabb", "a", "bb")
+        ).isEqualTo(new String[]{"laaalala", "alala"});
+
+        assertThat(substringsBetween("lalaaalalabbaalalabb", "aa", "b")
+        ).isEqualTo(new String[]{"alala", "lala"});
+
     }
 
 
