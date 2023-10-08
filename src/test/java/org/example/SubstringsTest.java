@@ -75,5 +75,40 @@ class SubstringsTest {
 
     }
 
+    @Test
+    void openAndCloseNotPresent() {
+        assertThat(substringsBetween("lalaaalalabbaalalabb", "x", "bb")
+        ).isEqualTo(null);
+
+        assertThat(substringsBetween("lalaaalalabbaalalabb", "a", "x")
+        ).isEqualTo(null);
+
+        assertThat(substringsBetween("lalaaalalabbaalalabb", "x", "x")
+        ).isEqualTo(null);
+
+    }
+
+    @Test
+    void openAndCloseEqualToString() {
+        assertThat(substringsBetween("aaaaaaaaaa", "a", "a")
+        ).isEqualTo(new String[] {"", "", "", "", ""});
+
+        assertThat(substringsBetween("aaaaaaaaa", "a", "x")
+        ).isEqualTo(null);
+
+        assertThat(substringsBetween("aaaaaaaa", "x", "a")
+        ).isEqualTo(null);
+
+    }
+
+    @Test
+    void withEmpySpaces() {
+        assertThat(substringsBetween("aa bb cc dd ee", "aa", "ee")
+        ).isEqualTo(new String[] {" bb cc dd "});
+
+        assertThat(substringsBetween("aa bb aa bb ee", "aa", "bb")
+        ).isEqualTo(new String[] {" ", " "});
+
+    }
 
 }
